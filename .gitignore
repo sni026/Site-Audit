@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+env/
+
+# Scrapy
+.scrapy/
+
+# Audit outputs
+*audit*.csv
+*audit*.xlsx
