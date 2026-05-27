@@ -1,15 +1,22 @@
 import csv
 import json
+import os
 import re
 from pathlib import Path
 from urllib.parse import urlparse
 
 import scrapy
+from dotenv import load_dotenv
+
+load_dotenv()
+
+_START_URL = os.environ.get("AUDIT_START_URL", "https://example.com/")
+_ALLOWED_DOMAIN = os.environ.get("AUDIT_ALLOWED_DOMAIN", "example.com")
 
 
 class SchemaAuditSpider(scrapy.Spider):
     name = "schema_audit"
-    allowed_domains = ["happyvalley.co.nz"]
+    allowed_domains = [_ALLOWED_DOMAIN]
 
     custom_settings = {
         "ROBOTSTXT_OBEY": True,
@@ -22,7 +29,7 @@ class SchemaAuditSpider(scrapy.Spider):
         },
     }
 
-    start_urls = ["https://happyvalley.co.nz/"]
+    start_urls = [_START_URL]
 
     schema_types_to_check = ("Product", "FAQPage", "Article")
     def __init__(self, urls=None, url_file=None, *args, **kwargs):

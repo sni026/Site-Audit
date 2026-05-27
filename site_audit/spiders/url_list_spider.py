@@ -4,9 +4,9 @@ class UrlListSpider(scrapy.Spider):
     name = "urllist"
 
     start_urls = [
-        "https://happyvalley.co.nz/collections/mgo-manuka-honey",
-        "https://happyvalley.co.nz/products/manuka-honey-umf-15"
-        # add as many URLs as you need
+        # Add your URLs here, e.g.:
+        # "https://your-site.com/some-page",
+        # "https://your-site.com/another-page",
     ]
 
     def parse(self, response):

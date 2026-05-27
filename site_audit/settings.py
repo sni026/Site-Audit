@@ -1,3 +1,8 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # Scrapy settings for site_audit project
 #
 # For simplicity, this file contains only settings considered important or

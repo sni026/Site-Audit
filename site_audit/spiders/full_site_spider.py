@@ -1,11 +1,19 @@
+import os
+
 import scrapy
+from dotenv import load_dotenv
 from urllib.parse import urlparse
 
+load_dotenv()
 
-class HappyValleySpider(scrapy.Spider):
-    name = "happyvalley"
-    allowed_domains = ["happyvalley.co.nz"]
-    start_urls = ["https://happyvalley.co.nz/"]
+_START_URL = os.environ.get("AUDIT_START_URL", "https://example.com/")
+_ALLOWED_DOMAIN = os.environ.get("AUDIT_ALLOWED_DOMAIN", "example.com")
+
+
+class FullSiteSpider(scrapy.Spider):
+    name = "full_site"
+    allowed_domains = [_ALLOWED_DOMAIN]
+    start_urls = [_START_URL]
     visited = set()
 
     def parse(self, response):
