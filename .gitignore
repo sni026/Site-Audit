@@ -14,5 +14,5 @@ env/
 .scrapy/
 
 # Audit outputs
-*audit*.csv
-*audit*.xlsx
+*.csv
+*.xlsx
